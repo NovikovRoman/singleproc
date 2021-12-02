@@ -27,6 +27,10 @@ func main() {
 	)
 
 	s, err = singleproc.New("your-app-name")
+	if err != nil {
+		log.Fatalf("failed create Single: %v", err)
+	}
+
 	err = s.Lock()
 
 	if err == singleproc.ErrAlreadyRunning {
